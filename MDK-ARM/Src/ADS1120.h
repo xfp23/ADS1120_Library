@@ -3,7 +3,7 @@
 
 /**
  * @file ADS1120.h
- * @author pxf
+ * @author xfp23 @github.com/xfp23
  * @brief ADS1120 library
  * @version 0.2
  * @date 2024-12-13

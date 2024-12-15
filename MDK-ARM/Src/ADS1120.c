@@ -86,6 +86,7 @@ uint16_t ADS1120_ContinuousRead(volatile ADS1120_Class_t *ADS1120)
     // HAL_GPIO_WritePin(ADS1120->config.Hareware.ADS1120_CS_Port,ADS1120->config.Hareware.ADS1120_CS_Pin,GPIO_PIN_RESET); // 拉低片选
 
     uint8_t data[2] = {0};
+    ADS1120->Signal.READ_Flage = false;
     HAL_SPI_Receive(ADS1120->config.Hareware.ADS1120_hspi, data, 2, ADS1120_TIMEOUT);
     return (uint16_t)(data[0] << 8) | data[1];
 }
@@ -134,6 +135,7 @@ uint16_t ADS1120_SignalRead(volatile ADS1120_Class_t *ADS1120)
 {
     uint8_t data[3] = {0};
     uint16_t result = 0;
+    ADS1120->Signal.READ_Flage = false;
     WRDATA(ADS1120, ADS1120_RDATA);
     HAL_SPI_Receive(ADS1120->config.Hareware.ADS1120_hspi, data, 3, ADS1120_TIMEOUT);
     result = (uint16_t)(data[1] << 8) | data[2];

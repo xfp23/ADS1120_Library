@@ -107,7 +107,7 @@ int main(void)
   MX_TIM1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+ ADS1120_Init(&ADS1120);
   /* USER CODE END 2 */
 
   /* Infinite loop */
